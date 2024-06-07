@@ -1,8 +1,10 @@
-package ru.hh.mailservice.service;
+package ru.hh.mailservice.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.hh.mailservice.model.StringValue;
+import ru.hh.mailservice.service.DataSender;
+import ru.hh.mailservice.service.ValueSource;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +24,7 @@ public class StringValueSource implements ValueSource {
     @Override
     public void generate() {
         var executor = Executors.newScheduledThreadPool(1);
-        executor.scheduleAtFixedRate(() -> valueConsumer.send(makeValue()), 0 , 1, TimeUnit.SECONDS);
+        executor.scheduleAtFixedRate(() -> valueConsumer.send(makeValue()), 0 , 10, TimeUnit.SECONDS);
         log.info("старт генерации значений");
     }
 

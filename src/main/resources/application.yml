@@ -5,8 +5,23 @@ application:
 spring:
   application:
     name: mail-service
+  mail:
+    host:
+    port:
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          starttls:
+            enable: true
+          auth: true
+#        debug: true
 
   kafka:
+    bootstrap-servers: "127.0.0.1:29092"
     producer:
       bootstrap-servers: "127.0.0.1:29092"
       client-id: "producer"

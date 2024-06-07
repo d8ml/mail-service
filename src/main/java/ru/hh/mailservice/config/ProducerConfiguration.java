@@ -17,8 +17,8 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import ru.hh.mailservice.model.StringValue;
 import ru.hh.mailservice.service.DataSender;
-import ru.hh.mailservice.service.DataSenderKafka;
-import ru.hh.mailservice.service.StringValueSource;
+import ru.hh.mailservice.service.impl.DataSenderKafka;
+import ru.hh.mailservice.service.impl.StringValueSource;
 
 @Configuration
 public class ProducerConfiguration {

@@ -21,8 +21,9 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
 import ru.hh.mailservice.model.StringValue;
+import ru.hh.mailservice.service.EmailService;
 import ru.hh.mailservice.service.StringValueConsumer;
-import ru.hh.mailservice.service.StringValueConsumerLogger;
+import ru.hh.mailservice.service.impl.StringValueConsumerEmailSender;
 
 import java.util.List;
 
@@ -87,8 +88,8 @@ public class ConsumerConfiguration {
 //    }
 
     @Bean
-    public StringValueConsumer stringValueConsumerLogger() {
-        return new StringValueConsumerLogger();
+    public StringValueConsumer stringValueConsumerEmailSender(EmailService emailService) {
+        return new StringValueConsumerEmailSender(emailService);
     }
 
     @Bean
