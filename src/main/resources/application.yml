@@ -6,10 +6,10 @@ spring:
   application:
     name: mail-service
   mail:
-    host:
-    port:
-    username:
-    password:
+    host: smtp.yandex.ru
+    port: 465
+    username: "forestofhabits@yandex.ru"
+    password: "ffpngulbauxsgifh"
     properties:
       mail:
         smtp:
@@ -21,12 +21,12 @@ spring:
 #        debug: true
 
   kafka:
-    bootstrap-servers: "127.0.0.1:29092"
+    bootstrap-servers: "185.50.202.250:29092"
     producer:
-      bootstrap-servers: "127.0.0.1:29092"
+      bootstrap-servers: "185.50.202.250:29092"
       client-id: "producer"
     consumer:
-      bootstrap-servers: "127.0.0.1:29092"
+      bootstrap-servers: "185.50.202.250:29092"
       client-id: "consumer"
       group-id: "mail-group"
       auto-offset-reset: earliest

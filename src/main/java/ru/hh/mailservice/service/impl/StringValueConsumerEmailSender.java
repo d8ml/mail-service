@@ -2,6 +2,7 @@ package ru.hh.mailservice.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.hh.mailservice.model.EmailContext;
 import ru.hh.mailservice.model.StringValue;
 import ru.hh.mailservice.service.EmailService;
 import ru.hh.mailservice.service.StringValueConsumer;
@@ -22,11 +23,8 @@ public class StringValueConsumerEmailSender implements StringValueConsumer {
     public void accept(List<StringValue> values) {
         for (StringValue value : values) {
             log.info("сообщение: {}", value);
-            emailService.sendSimpleEmail(
-                    ADDRESS_TO,
-                    String.valueOf(value.id()),
-                    value.value()
-            );
+
+            emailService.sendMail(ADDRESS_TO);
         }
     }
 }
